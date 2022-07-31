@@ -2,6 +2,7 @@ package com.nirwashh.android.weatherappcompose.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
@@ -146,6 +147,11 @@ fun TabLayout() {
             state = pagerState,
             modifier = Modifier.weight(1.0f)
         ) { index ->
+            LazyColumn( modifier = Modifier.fillMaxSize()) {
+                items(15) {
+                    ListItem()
+                }
+            }
 
         }
 
