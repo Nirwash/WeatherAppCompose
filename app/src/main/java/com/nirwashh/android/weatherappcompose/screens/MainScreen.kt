@@ -3,6 +3,7 @@ package com.nirwashh.android.weatherappcompose.screens
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
@@ -23,6 +24,7 @@ import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.pagerTabIndicatorOffset
 import com.google.accompanist.pager.rememberPagerState
 import com.nirwashh.android.weatherappcompose.R
+import com.nirwashh.android.weatherappcompose.data.WeatherModel
 import com.nirwashh.android.weatherappcompose.ui.theme.MainColor
 import kotlinx.coroutines.launch
 
@@ -148,8 +150,27 @@ fun TabLayout() {
             modifier = Modifier.weight(1.0f)
         ) { index ->
             LazyColumn( modifier = Modifier.fillMaxSize()) {
-                items(15) {
-                    ListItem()
+                itemsIndexed(listOf(WeatherModel(
+                        "London",
+                    "10:00",
+                    "23°C",
+                    "sunny",
+                    "//cdn.weatherapi.com/weather/64x64/day/113.png",
+                    "",
+                    "",
+                    ""
+                ), WeatherModel(
+                    "London",
+                    "31 Aug 2022",
+                    "",
+                    "sunny",
+                    "//cdn.weatherapi.com/weather/64x64/day/113.png",
+                    "32°C",
+                    "19°C",
+                    "xcv"
+                )
+                )) {
+                    _, item -> ListItem(item = item)
                 }
             }
 
