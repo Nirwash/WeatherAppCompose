@@ -3,14 +3,14 @@ package com.nirwashh.android.weatherappcompose
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.nirwashh.android.weatherappcompose.screens.MainScreen
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
+import com.nirwashh.android.weatherappcompose.screens.MainCard
+import com.nirwashh.android.weatherappcompose.screens.TabLayout
 import com.nirwashh.android.weatherappcompose.ui.theme.WeatherAppComposeTheme
 
 class MainActivity : ComponentActivity() {
@@ -18,7 +18,18 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             WeatherAppComposeTheme {
-                MainScreen()
+                Image(
+                    painter = painterResource(id = R.drawable.background),
+                    contentDescription = "background",
+                    modifier = Modifier.fillMaxSize(),
+                    contentScale = ContentScale.Crop,
+                    alpha = 0.95f
+                )
+                Column {
+                    MainCard()
+                    TabLayout()
+                }
+
             }
         }
     }
